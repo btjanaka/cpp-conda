@@ -6,16 +6,11 @@ dependencies:
   # Build tools
   - cmake
   - make
-  - clang
   - clang-tools # clang-format, clang-tidy
-  - clangdev
-  - clangxx
-  - libclang
-  - libclang-cpp
-  - libclang-cpp11
+  - libstdcxx-devel_linux-64
   - gxx_linux-64 # C++ standard lib and gcc - https://docs.conda.io/projects/conda-build/en/latest/resources/compiler-tools.html
   # Libraries
-  - abseil-cpp # No version since "live at head"
+  - abseil-cpp # No version since "live at head" - https://abseil.io/about/philosophy#we-recommend-that-you-choose-to-live-at-head
   - xtensor=0.*
   - xtl=0.*
   - xsimd=7.*
