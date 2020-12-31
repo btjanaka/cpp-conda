@@ -32,4 +32,4 @@ jobs:
           cd build
           cmake ..
           make
-          ./main
+          ./bin/main
