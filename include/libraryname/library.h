@@ -1,0 +1,6 @@
+#ifndef LIBRARYNAME_LIBRARY_H
+#define LIBRARYNAME_LIBRARY_H
+
+int Echo(int x);
+
+#endif  // LIBRARYNAME_LIBRARY_H

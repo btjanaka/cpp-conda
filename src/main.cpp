@@ -1,10 +1,12 @@
-#include <iostream>
+#include <absl/container/flat_hash_map.h>
 
-#include "absl/container/flat_hash_map.h"
-#include "nlohmann/json.hpp"
-#include "xtensor/xarray.hpp"
-#include "xtensor/xio.hpp"
-#include "xtensor/xview.hpp"
+#include <iostream>
+#include <nlohmann/json.hpp>
+#include <xtensor/xarray.hpp>
+#include <xtensor/xio.hpp>
+#include <xtensor/xview.hpp>
+
+#include "subdir1/private_library.h"
 
 using json = nlohmann::json;
 
@@ -26,7 +28,7 @@ int main(int argc, char* argv[]) {
   }
 
   std::cout << "'Echo' function from library1\n";
-  // std::cout << echo(5) << '\n';
+  std::cout << Echo(5) << '\n';
 
   json j = {
       {"pi", 3.141},
