@@ -1,0 +1,37 @@
+name: Build and Test
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Install Conda
+        run: |
+          wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+          bash miniconda.sh -b -p $HOME/miniconda
+          source "$HOME/miniconda/etc/profile.d/conda.sh"
+          hash -r # See `help hash`
+          conda config --set always_yes yes --set changeps1 no
+          conda update -q conda
+          conda info -a # Useful for debugging any issues with conda
+
+      - name: Create Conda Env
+        run: |
+          conda env create -f environment.yaml
+
+      - name: Build
+        run: |
+          conda activate cpp-conda
+          mkdir build
+          cd build
+          cmake ..
+          make
+          main

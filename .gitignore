@@ -1,0 +1,7 @@
+# Build
+build/
+
+# Editor
+*.swp
+*.vim
+.vscode
