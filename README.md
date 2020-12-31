@@ -1,5 +1,13 @@
 # C++ Project with Conda
 
+**Status: In Development**
+
+This is a template for using C++ with Conda, geared towards those working in
+machine learning / AI / data science. Currently, it has an example of an app (in
+`src/main.cpp`) and a library (in `include/libraryname/library.h`).
+
+## Contents
+
 <!-- vim-markdown-toc GFM -->
 
 * [Features](#features)
@@ -9,10 +17,6 @@
 * [References](#references)
 
 <!-- vim-markdown-toc -->
-
-This is a template for using C++ with Conda, geared towards those working in
-machine learning / AI / data science. Currently, it has an example of an app (in
-`src/main.cpp`) and a library (in `include/libraryname/library.h`).
 
 ## Features
 
