@@ -22,8 +22,7 @@ jobs:
           conda config --set always_yes yes --set changeps1 no
           conda update -q conda
           conda info -a # Useful for debugging any issues with conda
-          conda install -c conda-forge mamba # Faster dependencies
-          mamba env create -f environment.yaml
+          conda env create -f environment.yaml
 
       - name: Build
         run: |
