@@ -1,5 +1,7 @@
 # Build
 build/
+.cache/
+**/compile_commands.json
 
 # Editor
 *.swp

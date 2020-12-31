@@ -11,10 +11,11 @@
 
 using json = nlohmann::json;
 
-int main(int argc, char* argv[]) {
+int main() {
   std::cout << "xtensor\n";
-  xt::xarray<double> arr1{{1.0, 2.0, 3.0}, {2.0, 5.0, 7.0}, {2.0, 5.0, 7.0}};
-  xt::xarray<double> arr2{5.0, 6.0, 7.0};
+  xt::xarray<double> arr1{
+      {1.0, 2.0, 3.0}, {2.0, 5.0, 7.0}, {2.0, 5.0, 7.0}};  // NOLINT
+  xt::xarray<double> arr2{5.0, 6.0, 7.0};                  // NOLINT
   xt::xarray<double> res = xt::view(arr1, 1) + arr2;
   std::cout << res << "\n";
 
@@ -29,19 +30,18 @@ int main(int argc, char* argv[]) {
   }
 
   std::cout << "'Echo' function from library1\n";
-  std::cout << Echo(5) << '\n';
+  std::cout << Echo(5) << '\n';  // NOLINT
 
   json j = {
-      {"pi", 3.141},
+      {"pi", 3.141},  // NOLINT
       {"happy", true},
       {"name", "Niels"},
       {"nothing", nullptr},
-      {"answer", {{"everything", 42}}},
+      {"answer", {{"everything", 42}}},  // NOLINT
       {"list", {1, 0, 2}},
       {"object",
        {
-           {"currency", "USD"},
-           {"value", 42.99},
+           {"currency", "USD"}, {"value", 42.99},  // NOLINT
        }},
   };
   std::cout << "JSON:\n" << j.dump(2) << '\n';

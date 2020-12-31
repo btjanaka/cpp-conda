@@ -11,6 +11,10 @@ machine learning / AI / data science. Currently, it has an example of an app (in
 <!-- vim-markdown-toc GFM -->
 
 * [Features](#features)
+* [Instructions](#instructions)
+  * [Environment](#environment)
+  * [Build](#build)
+  * [Dev Tools](#dev-tools)
 * [Motivation](#motivation)
   * [Why Conda?](#why-conda)
   * [Conclusions](#conclusions)
@@ -29,6 +33,55 @@ machine learning / AI / data science. Currently, it has an example of an app (in
   - [xtensor](https://xtensor.readthedocs.io/en/latest/)
   - [nlohmann/json](https://github.com/nlohmann/json#serialization--deserialization)
 - GitHub Actions integration
+
+## Instructions
+
+### Environment
+
+The project runs within a Conda environment named `cpp-conda`. If you do not
+have Conda installed, I recommend getting
+[Miniconda](https://docs.conda.io/en/latest/miniconda.html). To create the
+environment, run:
+
+```bash
+conda env create -f environment.yaml
+conda activate cpp-conda
+```
+
+Alternatively, use [Mamba](https://github.com/mamba-org/mamba), a faster
+alternative to Conda implemented in C++. Mamba primarily accelerates package
+installation, so you will still need to use Conda to activate the environment.
+
+```bash
+conda install -c conda-forge mamba
+mamba env create -f environment.yaml
+conda activate cpp-conda
+```
+
+### Build
+
+Build the project with:
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+
+Then run the `main` app with:
+
+```bash
+./bin/main
+```
+
+### Dev Tools
+
+To set up the dev environment, first run a build as described above, then run:
+
+```bash
+bash scripts/setup_dev.sh
+```
 
 ## Motivation
 
@@ -86,4 +139,5 @@ up." I'll have to run a full project with this template to find out :D.
 ## References
 
 - [cmake examples](https://github.com/ttroy50/cmake-examples)
+- [cpp starter project](https://github.com/lefticus/cpp_starter_project)
 - [awesome-cpp](https://github.com/fffaraz/awesome-cpp#artificial-intelligence)
