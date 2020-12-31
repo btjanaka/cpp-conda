@@ -13,25 +13,24 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Install Conda
+      - name: Install Conda and Create Env
         run: |
           wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-          bash miniconda.sh -b -p $HOME/miniconda
-          source "$HOME/miniconda/etc/profile.d/conda.sh"
+          bash miniconda.sh -b -p $HOME/miniconda3
+          source "$HOME/miniconda3/etc/profile.d/conda.sh"
           hash -r # See `help hash`
           conda config --set always_yes yes --set changeps1 no
           conda update -q conda
           conda info -a # Useful for debugging any issues with conda
-
-      - name: Create Conda Env
-        run: |
-          conda env create -f environment.yaml
+          conda install -c conda-forge mamba # Faster dependencies
+          mamba env create -f environment.yaml
 
       - name: Build
         run: |
+          source "$HOME/miniconda3/etc/profile.d/conda.sh"
           conda activate cpp-conda
           mkdir build
           cd build
           cmake ..
           make
-          main
+          ./main
