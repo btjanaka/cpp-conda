@@ -6,6 +6,7 @@
 #include <xtensor/xio.hpp>
 #include <xtensor/xview.hpp>
 
+#include "address_book.pb.h"
 #include "subdir1/private_library.h"
 
 using json = nlohmann::json;
@@ -44,6 +45,10 @@ int main(int argc, char* argv[]) {
        }},
   };
   std::cout << "JSON:\n" << j.dump(2) << '\n';
+
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+  std::cout << "Protobuf\n";
+  projectname::AddressBook address_book;
 
   return 0;
 }

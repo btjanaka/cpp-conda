@@ -15,5 +15,6 @@ dependencies:
   - xtl=0.*
   - xsimd=7.*
   - nlohmann_json=3.*
+  - protobuf=3.* # includes Protobuf compiler, C++ headers, Python libraries
   # Development
   - cmake_format

@@ -12,8 +12,7 @@
 
 This is a template for using C++ with Conda, geared towards those working in
 machine learning / AI / data science. Currently, it has an example of an app (in
-`src/main.cpp`) and a library (in `include/libraryname/library.h`). Build
-instructions for these are in `CMakeLists.txt`.
+`src/main.cpp`) and a library (in `include/libraryname/library.h`).
 
 ## Features
 
