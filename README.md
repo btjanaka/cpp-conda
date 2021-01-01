@@ -1,5 +1,7 @@
 # C++ Project with Conda
 
+[![Build, Lint, Test, Run](https://github.com/btjanaka/cpp-conda/workflows/Build,%20Lint,%20Test,%20Run/badge.svg)](https://github.com/btjanaka/cpp-conda/actions?query=workflow%3A"Build%2C+Lint%2C+Test%2C+Run")
+
 **Status: In Development**
 
 This is a template for using C++ with Conda, geared towards those working in
