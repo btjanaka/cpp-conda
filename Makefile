@@ -9,6 +9,12 @@ setup-clang-tools: ## Sets up compilation database for clang tools. Assumes a bu
 	ln -s build/compile_commands.json
 .PHONY: setup-clang-tools
 
+SOURCE_FILES = $(shell find ./src ./include -type f -regextype posix-extended -regex '.*\.(cpp|h)')
+
 lint: ## Runs clang-tidy on all source code.
-	find src include -type f -regextype posix-extended -regex '.*\.(cpp|h)' -exec clang-tidy {} \;
+	clang-tidy $(SOURCE_FILES)
 .PHONY: lint
+
+format: ## Runs clang-format on all source code and fixes it in-place.
+	clang-format -i $(SOURCE_FILES)
+.PHONY: format

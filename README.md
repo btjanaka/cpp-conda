@@ -40,7 +40,8 @@ it _might_ work on other systems.
   - [nlohmann/json](https://github.com/nlohmann/json#serialization--deserialization)
   - [protobuf](https://github.com/protocolbuffers/protobuf)
 - Dev tools
-  - Formatting (Google style) with [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
+  - Formatting (Google style) with
+    [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
   - Linting with [clang-tidy](http://clang.llvm.org/extra/clang-tidy/)
     - This is not integrated directly into CMake because doing so will result in
       clang-tidy linting generated libraries like those from protobuf
@@ -49,8 +50,8 @@ it _might_ work on other systems.
 
 ### Environment
 
-The project runs within a Conda environment named `cpp-conda`. If you do not
-have Conda installed, I recommend getting
+For development and building, this project runs within a Conda environment named
+`cpp-conda`. If you do not have Conda installed, I recommend getting
 [Miniconda](https://docs.conda.io/en/latest/miniconda.html). To create the
 environment, run:
 
@@ -71,7 +72,7 @@ conda activate cpp-conda
 
 ### Build
 
-Build the project with:
+**Within the Conda environment,** build the project with:
 
 ```bash
 mkdir build
@@ -85,6 +86,8 @@ Then run the `main` app with:
 ```bash
 ./bin/main
 ```
+
+The binary should work both inside and outside the Conda env.
 
 ### Dev Tools
 
