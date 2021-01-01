@@ -42,4 +42,5 @@ jobs:
 
       - name: Run
         run: |
+          cd build
           ./bin/main
