@@ -1,6 +1,6 @@
-#include <absl/container/flat_hash_map.h>  // TODO(btjanaka): make this be sorted with the other CPP imports
-
 #include <iostream>
+
+#include <absl/container/flat_hash_map.h>
 #include <nlohmann/json.hpp>
 #include <xtensor/xarray.hpp>
 #include <xtensor/xio.hpp>
