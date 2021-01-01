@@ -17,7 +17,7 @@ jobs:
         run: |
           wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
           bash miniconda.sh -b -p $HOME/miniconda3
-          source "$HOME/miniconda3/etc/profile.d/conda.sh"
+          conda init bash # Sets up shell for later commands.
           hash -r # See `help hash`
           conda config --set always_yes yes --set changeps1 no
           conda update -q conda
@@ -26,16 +26,19 @@ jobs:
 
       - name: Build
         run: |
-          source "$HOME/miniconda3/etc/profile.d/conda.sh"
           conda activate cpp-conda
           mkdir build
           cd build
           cmake ..
           make
 
+      - name: Check Code Format
+        run: |
+          conda activate cpp-conda
+          make check-format
+
       - name: Lint
         run: |
-          source "$HOME/miniconda3/etc/profile.d/conda.sh"
           conda activate cpp-conda
           make setup-clang-tools
           make lint
