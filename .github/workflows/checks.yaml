@@ -1,4 +1,4 @@
-name: Build and Test
+name: Built, Lint, Test, Run
 
 on: push
 
@@ -32,4 +32,14 @@ jobs:
           cd build
           cmake ..
           make
+
+      - name: Lint
+        run: |
+          source "$HOME/miniconda3/etc/profile.d/conda.sh"
+          conda activate cpp-conda
+          make setup-clang-tools
+          make lint
+
+      - name: Run
+        run: |
           ./bin/main

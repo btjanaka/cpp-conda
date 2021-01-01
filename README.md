@@ -24,7 +24,11 @@ machine learning / AI / data science. Currently, it has an example of an app (in
 
 ## Features
 
-- Conda environment eliminates (?) system dependencies
+Currently, this template has only been set up and run on Linux systems, though
+it _might_ work on other systems.
+
+- Conda environment eliminates system dependencies
+- GitHub Actions integration
 - Build system with cmake, make, and gcc (all installed with `conda`; see
   [here](https://docs.conda.io/projects/conda-build/en/latest/resources/compiler-tools.html))
   for details on the compilers available through Anaconda
@@ -32,7 +36,12 @@ machine learning / AI / data science. Currently, it has an example of an app (in
   - [Abseil](https://abseil.io)
   - [xtensor](https://xtensor.readthedocs.io/en/latest/)
   - [nlohmann/json](https://github.com/nlohmann/json#serialization--deserialization)
-- GitHub Actions integration
+  - [protobuf](https://github.com/protocolbuffers/protobuf)
+- Dev tools
+  - Formatting (Google style) with [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
+  - Linting with [clang-tidy](http://clang.llvm.org/extra/clang-tidy/)
+    - This is not integrated directly into CMake because doing so will result in
+      clang-tidy linting generated libraries like those from protobuf
 
 ## Instructions
 
@@ -80,7 +89,13 @@ Then run the `main` app with:
 To set up the dev environment, first run a build as described above, then run:
 
 ```bash
-bash scripts/setup_dev.sh
+make setup-clang-tools
+```
+
+To lint, run:
+
+```bash
+make lint
 ```
 
 ## Motivation

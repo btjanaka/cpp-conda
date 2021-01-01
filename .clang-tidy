@@ -1,7 +1,5 @@
 ---
-Checks:          '*,-fuchsia-*,-google-*,-zircon-*,-abseil-*,-modernize-use-trailing-return-type,-llvm*'
+Checks: '*,-android-*,-fuchsia-*,-zircon-*,-modernize-use-trailing-return-type,-llvmlibc-*,-llvm-*,-objc-*,-linuxkernel-*'
 WarningsAsErrors: '*'
 HeaderFilterRegex: ''
-FormatStyle:     none
-
-
+FormatStyle: file
