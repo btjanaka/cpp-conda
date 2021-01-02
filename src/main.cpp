@@ -2,6 +2,7 @@
 
 #include <absl/container/flat_hash_map.h>
 #include <nlohmann/json.hpp>
+#include <torch/torch.h>
 #include <xtensor/xarray.hpp>
 #include <xtensor/xio.hpp>
 #include <xtensor/xview.hpp>
@@ -49,6 +50,11 @@ int main() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   std::cout << "Protobuf\n";
   projectname::AddressBook address_book;
+
+  std::cout << "Random torch tensor\n";
+  torch::Tensor tensor = torch::rand({2, 3});  // NOLINT
+  std::cout << tensor << std::endl;
+  std::cout << "cuda is available: " << torch::cuda::is_available() << '\n';
 
   return 0;
 }
