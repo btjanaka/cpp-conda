@@ -1,6 +1,6 @@
 # C++ Project with Conda
 
-[![Build, Lint, Test, Run](https://github.com/btjanaka/cpp-conda/workflows/Build,%20Lint,%20Test,%20Run/badge.svg)](https://github.com/btjanaka/cpp-conda/actions?query=workflow%3A"Build%2C+Lint%2C+Test%2C+Run")
+[![Build and Check](https://github.com/btjanaka/cpp-conda/workflows/Build%20and%20Check/badge.svg)](https://github.com/btjanaka/cpp-conda/actions?query=workflow%3A"Build+and+Check")
 
 **Status: In Development**
 
