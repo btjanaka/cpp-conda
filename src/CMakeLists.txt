@@ -9,13 +9,6 @@ find_package(nlohmann_json REQUIRED)
 
 find_package(Protobuf REQUIRED)
 
-# check if protobuf was found
-if(PROTOBUF_FOUND)
-  message("protobuf found")
-else()
-  message(FATAL_ERROR "Cannot find Protobuf")
-endif()
-
 # Generate the header and source files. Can also use protobuf_generate_python to
 # generate Python files.
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS address_book.proto)
