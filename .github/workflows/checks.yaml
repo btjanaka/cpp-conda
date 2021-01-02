@@ -30,7 +30,7 @@ jobs:
           conda activate cpp-conda
           mkdir build
           cd build
-          cmake ..
+          cmake -DCMAKE_PREFIX_PATH=`python -c 'import torch;print(torch.utils.cmake_prefix_path)'` ..
           make
 
       - name: Check Code Format

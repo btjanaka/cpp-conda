@@ -1,6 +1,7 @@
 name: cpp-conda
 channels:
   - conda-forge
+  - pytorch
   - defaults
 dependencies:
   - python=3.8.*
@@ -17,5 +18,6 @@ dependencies:
   - xsimd=7.*
   - nlohmann_json=3.*
   - protobuf=3.* # includes Protobuf compiler, C++ headers, Python libraries
+  - pytorch=1.7.*
   # Development
   - cmake_format

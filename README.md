@@ -39,6 +39,8 @@ it _might_ work on other systems.
   - [xtensor](https://xtensor.readthedocs.io/en/latest/)
   - [nlohmann/json](https://github.com/nlohmann/json#serialization--deserialization)
   - [protobuf](https://github.com/protocolbuffers/protobuf)
+  - [PyTorch](https://pytorch.org) -> For CUDA support, you will need to install
+    the [CUDA toolkit](https://developer.nvidia.com/cuda-toolkit) yourself
 - Dev tools
   - Formatting (Google style) with
     [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
@@ -77,7 +79,7 @@ conda activate cpp-conda
 ```bash
 mkdir build
 cd build
-cmake ..
+cmake -DCMAKE_PREFIX_PATH=`python -c 'import torch;print(torch.utils.cmake_prefix_path)'` ..
 make
 ```
 
