@@ -23,8 +23,17 @@ message("PROTO_HDRS = ${PROTO_HDRS}")
 
 add_executable(main main.cpp ${PROTO_SRCS} ${PROTO_HDRS})
 target_link_libraries(
-  main PRIVATE xtensor xtensor::optimize xtensor::use_xsimd absl::flat_hash_map
-               private_library ${PROTOBUF_LIBRARIES})
+  main
+  PRIVATE xtensor
+          xtensor::optimize
+          xtensor::use_xsimd
+          absl::base
+          absl::flat_hash_map
+          absl::flags
+          absl::flags_parse
+          absl::strings
+          private_library
+          ${PROTOBUF_LIBRARIES})
 target_include_directories(
   main PRIVATE . ${PROTOBUF_INCLUDE_DIRS}
                ${CMAKE_CURRENT_BINARY_DIR} # In order to capture the *.pb.h

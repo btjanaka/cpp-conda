@@ -1,6 +1,10 @@
 #include <iostream>
+#include <string>
 
 #include <absl/container/flat_hash_map.h>
+#include <absl/flags/flag.h>
+#include <absl/flags/parse.h>
+#include <absl/strings/str_cat.h>
 #include <nlohmann/json.hpp>
 #include <xtensor/xarray.hpp>
 #include <xtensor/xio.hpp>
@@ -11,7 +15,17 @@
 
 using json = nlohmann::json;
 
-int main() {
+// TODO(btjanaka): Figure out how to avoid having to put nolint.
+// NOLINTNEXTLINE
+ABSL_FLAG(std::string, config_file, "config.prototxt",
+          "Path to a configuration file containing a text proto.");
+
+int main(int argc, char* argv[]) {
+  std::cout << "Parse flags\n";
+  absl::ParseCommandLine(argc, argv);
+  std::string config_file = absl::GetFlag(FLAGS_config_file);
+  std::cout << absl::StrCat("Config file: ", config_file, "\n");
+
   std::cout << "xtensor\n";
   xt::xarray<double> arr1{
       {1.0, 2.0, 3.0}, {2.0, 5.0, 7.0}, {2.0, 5.0, 7.0}};  // NOLINT
